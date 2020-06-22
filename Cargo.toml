@@ -1,0 +1,16 @@
+[package]
+name = "fu3lf1lt3r"
+version = "0.1.0"
+authors = ["Skye Viau <skye.viau@outlook.com>"]
+edition = "2018"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+colored = "1.9.3"
+rand = "0.7.3"
+clap = "3.0.0-beta.1"
+text_io = "0.1.8"
+reqwest = { version = "0.10.6"}
+tokio = { version = "0.2.21", features = ["full"] }
+urlencoding = "1.1.1"
