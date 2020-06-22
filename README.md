@@ -8,7 +8,7 @@ ________ ___  ___  ________  ___               ________  _____  ___   _________ 
     \|__|    \|_______|\|_______|\|_______|        \|__|       \|__|\|_______|\|__|  \|_______|\|__|\|__|
 ```
 
-A rust implementation of CVE 2018-16763 with some extra features.
+A rust implementation of [CVE 2018-16763](https://nvd.nist.gov/vuln/detail/CVE-2018-16763) with some extra features.
 
 ### How to run
 You'll need to either build it or grab a release version from [here](https://gitlab.com/pretzelca/fu3lf1lt3r/-/releases).
